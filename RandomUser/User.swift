@@ -6,58 +6,52 @@
 //
 
 import Foundation
+import RealmSwift
 
 struct UserResult: Decodable {
     let results: [User]
 }
 
-struct User: Decodable {
-    var gender: String
-    var name: Name
-    var picture: Picture
-    var dob: SinceDate
-    var registered: SinceDate
-    
-    var location: Location
-    
-    var login: Login
-    var email: String
-    var phone: String
+class User: Object, Decodable {
+    @objc dynamic var gender: String = ""
+    @objc dynamic var name: Name?
+    @objc dynamic var picture: Picture?
+    @objc dynamic var dob: SinceDate?
+    @objc dynamic var registered: SinceDate?
+    @objc dynamic var location: Location?
+    @objc dynamic var login: Login?
+    @objc dynamic var email: String = ""
+    @objc dynamic var phone: String = ""
 }
 
-struct Name: Decodable {
-    var first: String
-    var last: String
+class Name: Object, Decodable {
+    @objc dynamic var first: String = ""
+    @objc dynamic var last: String = ""
 }
 
-struct Picture: Decodable {
-    var large: URL
-    var medium: URL
-    var thumbnail: URL
+class Picture: Object, Decodable {
+    @objc dynamic var large: String = ""
+    @objc dynamic var medium: String = ""
+    @objc dynamic var thumbnail: String = ""
 }
 
-struct SinceDate: Decodable {
-    var date: String
-    var age: Int
+class SinceDate: Object, Decodable {
+    @objc dynamic var date: String = ""
+    @objc dynamic var age: Int = 0
 }
 
-struct Login: Decodable {
-    var username: String
+class Login: Object, Decodable {
+    @objc dynamic var username: String = ""
 }
 
-struct Location: Decodable {
-    var street: Street
-    var city: String
-    var state: String
-    var country: String
+class Location: Object, Decodable {
+    @objc dynamic var street: Street?
+    @objc dynamic var city: String = ""
+    @objc dynamic var state: String = ""
+    @objc dynamic var country: String = ""
 }
 
-struct Street: Decodable {
-    var number: Int
-    var name: String
-}
-
-struct Coordinates: Decodable {
-    var latitude: String
-    var longitude: String
+class Street: Object, Decodable {
+    @objc dynamic var number: Int = 0
+    @objc dynamic var name: String = ""
 }

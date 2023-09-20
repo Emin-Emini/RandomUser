@@ -29,6 +29,17 @@ class UsersViewModel {
             }
         }
     }
+    
+    func numberOfUsers() -> Int {
+        return users.count
+    }
+    
+    func user(at index: Int) -> User? {
+        guard index >= 0 && index < users.count else {
+            return nil
+        }
+        return users[index]
+    }
 }
 
 

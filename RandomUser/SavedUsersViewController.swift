@@ -1,20 +1,20 @@
 //
-//  UsersViewController.swift
+//  SavedUsersViewController.swift
 //  RandomUser
 //
 //  Created by Emin Emini on 20.09.2023..
 //
 
 import UIKit
-import Alamofire
+import RealmSwift
 
-class UsersViewController: UIViewController {
+class SavedUsersViewController: UIViewController {
     
     // MARK: - Outlets
     @IBOutlet weak var usersTableView: UITableView!
     
     // MARK: - Properties
-    let viewModel = UsersViewModel()
+    let viewModel = SavedUsersViewModel()
     let tableView = UITableView()
     
     // MARK: - Life Cycle
@@ -24,7 +24,12 @@ class UsersViewController: UIViewController {
         navigationController?.navigationBar.prefersLargeTitles = true
         
         setupTableView()
-        viewModel.fetchUsers()
+        viewModel.loadUsers()
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        viewModel.loadUsers()
         viewModel.didUpdateData = {
             DispatchQueue.main.async {
                 self.usersTableView.reloadData()
@@ -34,13 +39,13 @@ class UsersViewController: UIViewController {
 }
 
 // MARK: - Table View
-extension UsersViewController: UITableViewDataSource, UITableViewDelegate {
+extension SavedUsersViewController: UITableViewDataSource, UITableViewDelegate {
     func setupTableView() {
         usersTableView.dataSource = self
         usersTableView.delegate = self
         usersTableView.register(UINib(nibName: "UserTableViewCell", bundle: nil), forCellReuseIdentifier: "UserTableViewCell")
         usersTableView.rowHeight = 80
-
+        
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -55,11 +60,5 @@ extension UsersViewController: UITableViewDataSource, UITableViewDelegate {
         cell.configure(with: user)
         
         return cell
-    }
-    
-    func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
-        if indexPath.row == viewModel.users.count - 1 {
-            viewModel.fetchUsers()
-        }
     }
 }
