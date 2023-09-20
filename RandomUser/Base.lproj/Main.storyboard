@@ -11,18 +11,33 @@
         <!--Item-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="RandomUser" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" customClass="UsersViewController" customModule="RandomUser" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="btS-X0-4pL">
+                                <rect key="frame" x="0.0" y="59" width="393" height="710"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                            </tableView>
+                        </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="btS-X0-4pL" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="D2j-cR-01u"/>
+                            <constraint firstItem="btS-X0-4pL" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="M00-nV-3lQ"/>
+                            <constraint firstItem="btS-X0-4pL" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="S4c-vE-eWa"/>
+                            <constraint firstItem="btS-X0-4pL" firstAttribute="bottom" secondItem="6Tk-OE-BBY" secondAttribute="bottom" id="eDu-wA-Qpn"/>
+                        </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" title="Item" id="t1h-8B-Dee"/>
+                    <connections>
+                        <outlet property="usersTableView" destination="btS-X0-4pL" id="TT6-TZ-C2p"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-471" y="780"/>
+            <point key="canvasLocation" x="-472.51908396946561" y="779.57746478873241"/>
         </scene>
         <!--Item-->
         <scene sceneID="ST6-uc-bsA">

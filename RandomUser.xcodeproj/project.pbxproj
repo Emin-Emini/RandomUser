@@ -10,7 +10,9 @@
 		1947457C2ABB507500F5403B /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1947457B2ABB507500F5403B /* User.swift */; };
 		1947457F2ABB536F00F5403B /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = 1947457E2ABB536F00F5403B /* Alamofire */; };
 		194745812ABB541F00F5403B /* APIRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 194745802ABB541F00F5403B /* APIRouter.swift */; };
-		194745832ABB569100F5403B /* UserViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 194745822ABB569100F5403B /* UserViewModel.swift */; };
+		194745832ABB569100F5403B /* UsersViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 194745822ABB569100F5403B /* UsersViewModel.swift */; };
+		194745852ABB610E00F5403B /* UserTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 194745842ABB610E00F5403B /* UserTableViewCell.xib */; };
+		194745872ABB6F1800F5403B /* UserTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 194745862ABB6F1800F5403B /* UserTableViewCell.swift */; };
 		19E2C64A2ABB4B750001E10F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19E2C6492ABB4B750001E10F /* AppDelegate.swift */; };
 		19E2C64C2ABB4B750001E10F /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19E2C64B2ABB4B750001E10F /* SceneDelegate.swift */; };
 		19E2C64E2ABB4B750001E10F /* UsersViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19E2C64D2ABB4B750001E10F /* UsersViewController.swift */; };
@@ -43,7 +45,9 @@
 /* Begin PBXFileReference section */
 		1947457B2ABB507500F5403B /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		194745802ABB541F00F5403B /* APIRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIRouter.swift; sourceTree = "<group>"; };
-		194745822ABB569100F5403B /* UserViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserViewModel.swift; sourceTree = "<group>"; };
+		194745822ABB569100F5403B /* UsersViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UsersViewModel.swift; sourceTree = "<group>"; };
+		194745842ABB610E00F5403B /* UserTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = UserTableViewCell.xib; sourceTree = "<group>"; };
+		194745862ABB6F1800F5403B /* UserTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserTableViewCell.swift; sourceTree = "<group>"; };
 		19E2C6462ABB4B750001E10F /* RandomUser.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RandomUser.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		19E2C6492ABB4B750001E10F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		19E2C64B2ABB4B750001E10F /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -111,9 +115,11 @@
 			children = (
 				19E2C6492ABB4B750001E10F /* AppDelegate.swift */,
 				19E2C64B2ABB4B750001E10F /* SceneDelegate.swift */,
-				19E2C64D2ABB4B750001E10F /* UsersViewController.swift */,
 				1947457B2ABB507500F5403B /* User.swift */,
-				194745822ABB569100F5403B /* UserViewModel.swift */,
+				194745822ABB569100F5403B /* UsersViewModel.swift */,
+				19E2C64D2ABB4B750001E10F /* UsersViewController.swift */,
+				194745862ABB6F1800F5403B /* UserTableViewCell.swift */,
+				194745842ABB610E00F5403B /* UserTableViewCell.xib */,
 				194745802ABB541F00F5403B /* APIRouter.swift */,
 				19E2C64F2ABB4B750001E10F /* Main.storyboard */,
 				19E2C6552ABB4B780001E10F /* Assets.xcassets */,
@@ -253,6 +259,7 @@
 			files = (
 				19E2C6592ABB4B780001E10F /* LaunchScreen.storyboard in Resources */,
 				19E2C6562ABB4B780001E10F /* Assets.xcassets in Resources */,
+				194745852ABB610E00F5403B /* UserTableViewCell.xib in Resources */,
 				19E2C6512ABB4B750001E10F /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -282,8 +289,9 @@
 				194745812ABB541F00F5403B /* APIRouter.swift in Sources */,
 				19E2C64A2ABB4B750001E10F /* AppDelegate.swift in Sources */,
 				19E2C64C2ABB4B750001E10F /* SceneDelegate.swift in Sources */,
+				194745872ABB6F1800F5403B /* UserTableViewCell.swift in Sources */,
 				1947457C2ABB507500F5403B /* User.swift in Sources */,
-				194745832ABB569100F5403B /* UserViewModel.swift in Sources */,
+				194745832ABB569100F5403B /* UsersViewModel.swift in Sources */,
 				19E2C6542ABB4B750001E10F /* RandomUser.xcdatamodeld in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
