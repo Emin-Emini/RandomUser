@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1947457C2ABB507500F5403B /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1947457B2ABB507500F5403B /* User.swift */; };
 		19E2C64A2ABB4B750001E10F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19E2C6492ABB4B750001E10F /* AppDelegate.swift */; };
 		19E2C64C2ABB4B750001E10F /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19E2C64B2ABB4B750001E10F /* SceneDelegate.swift */; };
 		19E2C64E2ABB4B750001E10F /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19E2C64D2ABB4B750001E10F /* ViewController.swift */; };
@@ -37,6 +38,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		1947457B2ABB507500F5403B /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		19E2C6462ABB4B750001E10F /* RandomUser.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RandomUser.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		19E2C6492ABB4B750001E10F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		19E2C64B2ABB4B750001E10F /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -104,6 +106,7 @@
 				19E2C6492ABB4B750001E10F /* AppDelegate.swift */,
 				19E2C64B2ABB4B750001E10F /* SceneDelegate.swift */,
 				19E2C64D2ABB4B750001E10F /* ViewController.swift */,
+				1947457B2ABB507500F5403B /* User.swift */,
 				19E2C64F2ABB4B750001E10F /* Main.storyboard */,
 				19E2C6552ABB4B780001E10F /* Assets.xcassets */,
 				19E2C6572ABB4B780001E10F /* LaunchScreen.storyboard */,
@@ -264,6 +267,7 @@
 				19E2C64E2ABB4B750001E10F /* ViewController.swift in Sources */,
 				19E2C64A2ABB4B750001E10F /* AppDelegate.swift in Sources */,
 				19E2C64C2ABB4B750001E10F /* SceneDelegate.swift in Sources */,
+				1947457C2ABB507500F5403B /* User.swift in Sources */,
 				19E2C6542ABB4B750001E10F /* RandomUser.xcdatamodeld in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
