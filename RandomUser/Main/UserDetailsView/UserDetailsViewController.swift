@@ -6,11 +6,13 @@
 //
 
 import UIKit
+import RealmSwift
 
 class UserDetailsViewController: UIViewController, UIGestureRecognizerDelegate {
     
     //MARK: - Outlets
     @IBOutlet weak var cardView: UIView!
+    @IBOutlet weak var bookmarkImage: UIImageView!
     @IBOutlet weak var profilePicture: UIImageView!
     @IBOutlet weak var nameLabel: UILabel!
     @IBOutlet weak var usernameLabel: UILabel!
@@ -30,13 +32,21 @@ class UserDetailsViewController: UIViewController, UIGestureRecognizerDelegate {
         }
     }
     
+    var userSaved: Bool = false {
+        didSet {
+            bookmarkImage.image = userSaved ? UIImage(named: "saved") : UIImage(named: "unsaved")
+        }
+    }
+    
+    var fromSavedUsers: Bool = false
+    
     //Gestures
     private var pan: UIPanGestureRecognizer!
     let darknessThreshold: CGFloat = 0.2
     let dismissThreshold: CGFloat = 60.0 * UIScreen.main.nativeScale
     var dismissFeedbackTriggered = false
 
-    //MARK: - View Load
+    //MARK: - Life Cycle
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -64,7 +74,37 @@ class UserDetailsViewController: UIViewController, UIGestureRecognizerDelegate {
             NotificationCenter.default.post(name: NSNotification.Name(rawValue: "modalIsDimissed"), object: nil)
         }
     }
-
+    
+    @IBAction func bookmarkButton(_ sender: Any) {
+        guard let user = user else {
+            print("User is nil")
+            return
+        }
+        
+        if userSaved && fromSavedUsers {
+            DispatchQueue.main.asyncAfter(deadline: .now() + .milliseconds(100)) {
+                self.dismiss(animated: true)
+            }
+        }
+        
+        let realm = try! Realm()
+        let predicate = NSPredicate(format: "login.uuid = %@", user.login?.uuid ?? "")
+        
+        try! realm.write {
+            if let existingUser = realm.objects(User.self).filter(predicate).first {
+                realm.delete(existingUser)
+                userSaved = false
+            } else {
+                let userCopy = user.deepCopy()
+                realm.add(userCopy)
+                userSaved = true
+            }
+        }
+        
+        NotificationCenter.default.post(name: NSNotification.Name(rawValue: "userSavedOrRemoved"), object: nil)
+        NotificationCenter.default.post(name: NSNotification.Name(rawValue: "reloadSavedUsersList"), object: nil)
+    }
+    
 }
 
 //MARK: - Functions
@@ -85,7 +125,12 @@ extension UserDetailsViewController {
         if let photoString = user.picture?.large,
            let photoURL = URL(string: photoString) {
             profilePicture.kf.setImage(with: photoURL)
+            profilePicture.layer.borderWidth = 3
+            profilePicture.layer.borderColor = UIColor.systemIndigo.cgColor
         }
+        
+        let realm = try! Realm()
+        userSaved = isUserSaved(in: realm, uuid: user.login?.uuid ?? "")
         
         // Handling Name
         if let firstName = user.name?.first, let lastName = user.name?.last {
@@ -138,6 +183,11 @@ extension UserDetailsViewController {
         } else {
             registeredDateLabel.text = "Registration date not available"
         }
+    }
+    
+    func isUserSaved(in realm: Realm, uuid: String) -> Bool {
+        let predicate = NSPredicate(format: "login.uuid = %@", uuid)
+        return realm.objects(User.self).filter(predicate).count > 0
     }
 
     

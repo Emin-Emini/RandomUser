@@ -21,6 +21,7 @@ class UserTableViewCell: UITableViewCell {
     @IBOutlet weak var bookmarkImage: UIImageView!
     @IBOutlet weak var bookmarkButton: UIButton!
     
+    // MARK: - Properties
     var userViewModel = UsersViewModel()
     var savedViewModel = SavedUsersViewModel()
     
@@ -49,12 +50,7 @@ class UserTableViewCell: UITableViewCell {
     
     var didUpdate: (() -> Void)?
     
-    func isUserSaved(in realm: Realm, uuid: String) -> Bool {
-        let predicate = NSPredicate(format: "login.uuid = %@", uuid)
-        return realm.objects(User.self).filter(predicate).count > 0
-    }
-    
-    // UserTableViewCell.swift
+    // MARK: - Actions
     @IBAction func saveUser(_ sender: Any) {
         let realm = try! Realm()
         let predicate = NSPredicate(format: "login.uuid = %@", user.login?.uuid ?? "")
@@ -71,5 +67,11 @@ class UserTableViewCell: UITableViewCell {
         }
         
         didUpdate?()
+    }
+    
+    // MARK: Functions
+    func isUserSaved(in realm: Realm, uuid: String) -> Bool {
+        let predicate = NSPredicate(format: "login.uuid = %@", uuid)
+        return realm.objects(User.self).filter(predicate).count > 0
     }
 }

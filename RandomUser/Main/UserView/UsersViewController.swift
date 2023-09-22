@@ -33,7 +33,10 @@ class UsersViewController: UIViewController {
         }
         NotificationCenter.default.addObserver(self, selector: #selector(userSavedOrRemoved), name: NSNotification.Name(rawValue: "userSavedOrRemoved"), object: nil)
     }
-    
+}
+
+// MARK: - Functions
+extension UsersViewController {
     @objc func userSavedOrRemoved() {
         DispatchQueue.main.async {
             self.usersTableView.reloadData()
@@ -57,7 +60,7 @@ extension UsersViewController: UITableViewDataSource, UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "UserTableViewCell", for: indexPath) as! UserTableViewCell
-        let user = viewModel.users[indexPath.row]
+        let user = viewModel.user(at: indexPath.row)
         
         cell.user = user
         cell.didUpdate = { [weak self] in
@@ -84,9 +87,9 @@ extension UsersViewController: UITableViewDataSource, UITableViewDelegate {
         tableView.deselectRow(at: indexPath, animated: true)
         let selectedUser = viewModel.user(at: indexPath.row)
         
-        let storyBoard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
-        let friendDetailsViewController = storyBoard.instantiateViewController(withIdentifier: "UserDetailsViewController") as! UserDetailsViewController
-        friendDetailsViewController.user = selectedUser
-        self.present(friendDetailsViewController, animated: true, completion: nil)
+        let storyBoard: UIStoryboard = UIStoryboard(name: "UserDetails", bundle: nil)
+        let userDetailsViewController = storyBoard.instantiateViewController(withIdentifier: "UserDetailsViewController") as! UserDetailsViewController
+        userDetailsViewController.user = selectedUser
+        self.present(userDetailsViewController, animated: true, completion: nil)
     }
 }

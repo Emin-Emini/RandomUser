@@ -25,6 +25,7 @@ class SavedUsersViewController: UIViewController {
         
         setupTableView()
         viewModel.loadUsers()
+        NotificationCenter.default.addObserver(self, selector: #selector(reloadSavedUsersList), name: NSNotification.Name(rawValue: "reloadSavedUsersList"), object: nil)
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -33,16 +34,30 @@ class SavedUsersViewController: UIViewController {
         viewModel.didUpdateData = {
             DispatchQueue.main.async {
                 self.usersTableView.reloadData()
+                self.usersTableView.isHidden = self.viewModel.numberOfUsers() <= 0 ? true : false
             }
         }
+        self.usersTableView.isHidden = self.viewModel.numberOfUsers() <= 0 ? true : false
     }
     
+    
+
+}
+
+// MARK: Functions
+extension SavedUsersViewController {
     func isSaved(user: User) -> Bool {
         let realm = try! Realm()
         let predicate = NSPredicate(format: "uuid = %@", user.login?.uuid ?? "")
         return realm.objects(Login.self).filter(predicate).count > 0
     }
-
+    
+    @objc func reloadSavedUsersList() {
+        DispatchQueue.main.async {
+            self.viewModel.loadUsers()
+            self.usersTableView.isHidden = self.viewModel.numberOfUsers() <= 0 ? true : false
+        }
+    }
 }
 
 // MARK: - Table View
@@ -79,9 +94,10 @@ extension SavedUsersViewController: UITableViewDataSource, UITableViewDelegate {
         tableView.deselectRow(at: indexPath, animated: true)
         let selectedUser = viewModel.user(at: indexPath.row)
         
-        let storyBoard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
-        let friendDetailsViewController = storyBoard.instantiateViewController(withIdentifier: "UserDetailsViewController") as! UserDetailsViewController
-        friendDetailsViewController.user = selectedUser
-        self.present(friendDetailsViewController, animated: true, completion: nil)
+        let storyBoard: UIStoryboard = UIStoryboard(name: "UserDetails", bundle: nil)
+        let userDetailsViewController = storyBoard.instantiateViewController(withIdentifier: "UserDetailsViewController") as! UserDetailsViewController
+        userDetailsViewController.user = selectedUser
+        userDetailsViewController.fromSavedUsers = true
+        self.present(userDetailsViewController, animated: true, completion: nil)
     }
 }
