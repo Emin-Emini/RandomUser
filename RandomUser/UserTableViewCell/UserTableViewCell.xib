@@ -33,8 +33,15 @@
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
                     </label>
+                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="unsave" translatesAutoresizingMaskIntoConstraints="NO" id="RE3-zV-LIQ">
+                        <rect key="frame" x="368" y="25" width="30" height="30"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="30" id="gpP-uv-WiJ"/>
+                            <constraint firstAttribute="width" constant="30" id="lsV-s8-jhE"/>
+                        </constraints>
+                    </imageView>
                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1ab-oJ-RR1">
-                        <rect key="frame" x="363" y="22.5" width="35" height="35"/>
+                        <rect key="frame" x="365" y="22.5" width="35" height="35"/>
                         <constraints>
                             <constraint firstAttribute="width" constant="35" id="OEd-dl-kZd"/>
                             <constraint firstAttribute="height" constant="35" id="Szm-5U-MXp"/>
@@ -47,22 +54,28 @@
                     </button>
                 </subviews>
                 <constraints>
+                    <constraint firstItem="RE3-zV-LIQ" firstAttribute="centerY" secondItem="h82-vf-csb" secondAttribute="centerY" id="004-C7-wkJ"/>
                     <constraint firstAttribute="bottom" secondItem="xUc-kn-DdL" secondAttribute="bottom" constant="16" id="2As-gr-DPW"/>
+                    <constraint firstAttribute="trailing" secondItem="RE3-zV-LIQ" secondAttribute="trailing" constant="16" id="5cF-0B-o5f"/>
                     <constraint firstItem="xUc-kn-DdL" firstAttribute="leading" secondItem="h82-vf-csb" secondAttribute="leading" constant="16" id="S5o-yy-zZV"/>
                     <constraint firstItem="xUc-kn-DdL" firstAttribute="top" secondItem="h82-vf-csb" secondAttribute="top" constant="16" id="SQT-1s-keB"/>
                     <constraint firstItem="qbp-3h-hBE" firstAttribute="centerY" secondItem="xUc-kn-DdL" secondAttribute="centerY" id="STC-wO-ZMO"/>
                     <constraint firstItem="qbp-3h-hBE" firstAttribute="leading" secondItem="xUc-kn-DdL" secondAttribute="trailing" constant="12" id="Utf-R2-K4j"/>
                     <constraint firstItem="1ab-oJ-RR1" firstAttribute="centerY" secondItem="h82-vf-csb" secondAttribute="centerY" id="Wwv-8z-FNz"/>
                     <constraint firstItem="xUc-kn-DdL" firstAttribute="centerY" secondItem="h82-vf-csb" secondAttribute="centerY" id="gbf-M7-UIc"/>
-                    <constraint firstAttribute="trailing" secondItem="1ab-oJ-RR1" secondAttribute="trailing" constant="16" id="oEB-sM-ubE"/>
+                    <constraint firstAttribute="trailing" secondItem="1ab-oJ-RR1" secondAttribute="trailing" constant="14" id="oEB-sM-ubE"/>
                 </constraints>
             </tableViewCellContentView>
             <connections>
                 <outlet property="bookmarkButton" destination="1ab-oJ-RR1" id="MNp-vv-RDk"/>
+                <outlet property="bookmarkImage" destination="RE3-zV-LIQ" id="KwC-0I-eeC"/>
                 <outlet property="userFullNameLabel" destination="qbp-3h-hBE" id="Vtg-hG-WyC"/>
                 <outlet property="userImage" destination="xUc-kn-DdL" id="hM4-Me-Xci"/>
             </connections>
             <point key="canvasLocation" x="140.57971014492756" y="153.34821428571428"/>
         </tableViewCell>
     </objects>
+    <resources>
+        <image name="unsave" width="512" height="512"/>
+    </resources>
 </document>

@@ -9,26 +9,28 @@ import Foundation
 import Alamofire
 import RealmSwift
 
+var savedUsers: [User] = []
+
 class SavedUsersViewModel {
-    var users: [User] = []
+    
     var currentPage = 1
     var isFetching = false
     var didUpdateData: (() -> Void)?
     
     func loadUsers() {
         let realm = try! Realm()
-        users = Array(realm.objects(User.self))
+        savedUsers = Array(realm.objects(User.self))
         didUpdateData?()
     }
     
     func numberOfUsers() -> Int {
-        return users.count
+        return savedUsers.count
     }
     
     func user(at index: Int) -> User? {
-        guard index >= 0 && index < users.count else {
+        guard index >= 0 && index < savedUsers.count else {
             return nil
         }
-        return users[index]
+        return savedUsers[index]
     }
 }

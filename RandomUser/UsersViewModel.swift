@@ -7,6 +7,7 @@
 
 import Foundation
 import Alamofire
+import RealmSwift
 
 class UsersViewModel {
     var users: [User] = []
@@ -24,14 +25,25 @@ class UsersViewModel {
                 self.users += userResult.results
                 self.currentPage += 1
                 self.didUpdateData?()
+                self.loadUsers()
             case .failure(let error):
                 print("Failed to fetch users: \(error.localizedDescription)")
             }
         }
     }
     
+    func loadUsers() {
+        let realm = try! Realm()
+        savedUsers = Array(realm.objects(User.self))
+        didUpdateData?()
+    }
+    
     func numberOfUsers() -> Int {
         return users.count
+    }
+    
+    func getUsers() -> [User] {
+        return users
     }
     
     func user(at index: Int) -> User? {

@@ -7,6 +7,7 @@
 
 import UIKit
 import Alamofire
+import RealmSwift
 
 class UsersViewController: UIViewController {
     
@@ -30,6 +31,13 @@ class UsersViewController: UIViewController {
                 self.usersTableView.reloadData()
             }
         }
+        NotificationCenter.default.addObserver(self, selector: #selector(userSavedOrRemoved), name: NSNotification.Name(rawValue: "userSavedOrRemoved"), object: nil)
+    }
+    
+    @objc func userSavedOrRemoved() {
+        DispatchQueue.main.async {
+            self.usersTableView.reloadData()
+        }
     }
 }
 
@@ -49,16 +57,25 @@ extension UsersViewController: UITableViewDataSource, UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "UserTableViewCell", for: indexPath) as! UserTableViewCell
-        guard let user = viewModel.user(at: indexPath.row) else {
-            return UITableViewCell()
+        let user = viewModel.users[indexPath.row]
+        
+        cell.user = user
+        cell.didUpdate = { [weak self] in
+            DispatchQueue.main.async {
+                // Re-check if the user is saved
+                //let isUpdatedSaved = self?.isSaved(user: user) ?? false
+                //cell.configure(with: user, isSaved: isUpdatedSaved)
+                
+                self?.usersTableView.reloadRows(at: [indexPath], with: .automatic)
+            }
         }
-        cell.configure(with: user)
         
         return cell
     }
+
     
     func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
-        if indexPath.row == viewModel.users.count - 1 {
+        if indexPath.row == viewModel.numberOfUsers() - 1 {
             viewModel.fetchUsers()
         }
     }

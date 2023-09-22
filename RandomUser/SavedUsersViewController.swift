@@ -36,6 +36,13 @@ class SavedUsersViewController: UIViewController {
             }
         }
     }
+    
+    func isSaved(user: User) -> Bool {
+        let realm = try! Realm()
+        let predicate = NSPredicate(format: "uuid = %@", user.login?.uuid ?? "")
+        return realm.objects(Login.self).filter(predicate).count > 0
+    }
+
 }
 
 // MARK: - Table View
@@ -57,7 +64,13 @@ extension SavedUsersViewController: UITableViewDataSource, UITableViewDelegate {
         guard let user = viewModel.user(at: indexPath.row) else {
             return UITableViewCell()
         }
-        cell.configure(with: user)
+        
+        cell.user = user
+        cell.didUpdate = {
+            self.viewModel.loadUsers() // or any other method to update your list
+            self.usersTableView.reloadData()
+            NotificationCenter.default.post(name: NSNotification.Name(rawValue: "userSavedOrRemoved"), object: nil)
+        }
         
         return cell
     }

@@ -81,6 +81,8 @@
                         <rect key="frame" x="0.0" y="0.0" width="1000" height="1000"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="tintColor" systemColor="systemIndigoColor"/>
+                        <color key="selectedImageTintColor" systemColor="systemIndigoColor"/>
                     </tabBar>
                     <connections>
                         <segue destination="fpm-hP-Ygg" kind="relationship" relationship="viewControllers" id="Lvn-qR-4L5"/>
@@ -400,7 +402,9 @@
         <scene sceneID="B1c-lh-uvK">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="csC-KP-JQs" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="" image="bookmark" id="Hqn-TK-Afo"/>
+                    <tabBarItem key="tabBarItem" title="" image="bookmark" id="Hqn-TK-Afo">
+                        <color key="badgeColor" systemColor="systemIndigoColor"/>
+                    </tabBarItem>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="HOP-NT-Kme">
                         <rect key="frame" x="0.0" y="59" width="393" height="44"/>
