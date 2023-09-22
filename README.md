@@ -26,7 +26,7 @@ Kingfisher: An image caching library. Used for efficiently loading and caching i
 
 Clone this repository and import into Xcode:
 
-git clone https://github.com/yourusername/RandomUser.git
+```git clone https://github.com/Emin-Emini/RandomUser/tree/develop```
 
 
 Run the app in your iOS simulator or a real device connected to your computer.
