@@ -64,10 +64,27 @@ enum Router: APIRouter {
 class APIClient {
     
     static let shared = APIClient()
+    private let reachabilityManager = NetworkReachabilityManager()
     
-    private init() {}
+    private init() {
+        reachabilityManager?.startListening(onQueue: DispatchQueue.global(qos: .background), onUpdatePerforming: { (status) in
+            switch status {
+            case .reachable:
+                print("Network is reachable")
+            case .notReachable:
+                print("Network is not reachable")
+            case .unknown:
+                print("Network status is unknown")
+            }
+        })
+    }
     
     func performRequest<T:Decodable>(route: APIRouter, decoder: JSONDecoder = JSONDecoder(), completion:@escaping (Result<T, AFError>) -> Void) {
+        guard let isNetworkReachable = reachabilityManager?.isReachable, isNetworkReachable else {
+            completion(.failure(AFError.sessionTaskFailed(error: NSError(domain: "", code: 0, userInfo: [NSLocalizedDescriptionKey: "No Internet Connection"]))))
+            return
+        }
+        
         AF.request(route).responseDecodable(decoder: decoder) { (response: DataResponse<T, AFError>) in
             completion(response.result)
         }

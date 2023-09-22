@@ -25,12 +25,19 @@ class UsersViewController: UIViewController {
         navigationController?.navigationBar.prefersLargeTitles = true
         
         setupTableView()
-        viewModel.fetchUsers()
+        
         viewModel.didUpdateData = {
             DispatchQueue.main.async {
                 self.usersTableView.reloadData()
             }
         }
+        viewModel.didFailWithError = { [weak self] error in
+            DispatchQueue.main.async {
+                self?.showAlert(title: "Error", message: error)
+            }
+        }
+        viewModel.fetchUsers()
+        
         NotificationCenter.default.addObserver(self, selector: #selector(userSavedOrRemoved), name: NSNotification.Name(rawValue: "userSavedOrRemoved"), object: nil)
     }
 }
@@ -41,6 +48,12 @@ extension UsersViewController {
         DispatchQueue.main.async {
             self.usersTableView.reloadData()
         }
+    }
+    
+    func showAlert(title: String, message: String) {
+        let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
+        alert.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
+        present(alert, animated: true, completion: nil)
     }
 }
 

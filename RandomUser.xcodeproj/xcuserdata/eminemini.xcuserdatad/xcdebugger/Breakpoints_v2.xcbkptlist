@@ -335,5 +335,197 @@
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "8DA20AFE-27DA-401E-855A-0CBF0DB81AA5"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "RandomUser/Main/UserView/UsersViewController.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "54"
+            endingLineNumber = "54"
+            landmarkName = "showAlert(title:message:)"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "8DA20AFE-27DA-401E-855A-0CBF0DB81AA5 - c9e728984f80749a"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "RandomUser.UsersViewController.showAlert(title: Swift.String, message: Swift.String) -&gt; ()"
+                  moduleName = "RandomUser"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/eminemini/Desktop/Xcode/Personal/RandomUser/RandomUser/Main/UserView/UsersViewController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "54"
+                  endingLineNumber = "54"
+                  offsetFromSymbolStart = "284">
+               </Location>
+               <Location
+                  uuid = "8DA20AFE-27DA-401E-855A-0CBF0DB81AA5 - c9e728984f80749a"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "RandomUser.UsersViewController.showAlert(title: Swift.String, message: Swift.String) -&gt; ()"
+                  moduleName = "RandomUser"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/eminemini/Desktop/Xcode/Personal/RandomUser/RandomUser/Main/UserView/UsersViewController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "54"
+                  endingLineNumber = "54"
+                  offsetFromSymbolStart = "116">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "424B6295-8AD3-49F5-BF61-C786AC253B0A"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "RandomUser/Main/UserView/UsersViewController.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "36"
+            endingLineNumber = "36"
+            landmarkName = "viewDidLoad()"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "A8DD4C43-01DA-4ED6-963F-DBB95A71FE95"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "RandomUser/Main/UserView/UsersViewModel.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "34"
+            endingLineNumber = "34"
+            landmarkName = "fetchUsers()"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "D415206F-B710-45BD-A20E-D8DB6690825E"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "RandomUser/Main/UserView/UsersViewController.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "35"
+            endingLineNumber = "35"
+            landmarkName = "viewDidLoad()"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "D415206F-B710-45BD-A20E-D8DB6690825E - 9fe664af2170a83c"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #2 (Swift.String) -&gt; () in RandomUser.UsersViewController.viewDidLoad() -&gt; ()"
+                  moduleName = "RandomUser"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/eminemini/Desktop/Xcode/Personal/RandomUser/RandomUser/Main/UserView/UsersViewController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "35"
+                  endingLineNumber = "35"
+                  offsetFromSymbolStart = "204">
+               </Location>
+               <Location
+                  uuid = "D415206F-B710-45BD-A20E-D8DB6690825E - a56f170ec3223763"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 @Swift.MainActor () -&gt; () in closure #2 (Swift.String) -&gt; () in RandomUser.UsersViewController.viewDidLoad() -&gt; ()"
+                  moduleName = "RandomUser"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/eminemini/Desktop/Xcode/Personal/RandomUser/RandomUser/Main/UserView/UsersViewController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "34"
+                  endingLineNumber = "34"
+                  offsetFromSymbolStart = "36">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "6C6E596F-B74F-4FBF-A3F0-92C0CA853115"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "RandomUser/Main/UserView/UsersViewController.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "30"
+            endingLineNumber = "30"
+            landmarkName = "viewDidLoad()"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "6C6E596F-B74F-4FBF-A3F0-92C0CA853115 - 81674d9cf4084a5e"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 () -&gt; () in RandomUser.UsersViewController.viewDidLoad() -&gt; ()"
+                  moduleName = "RandomUser"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/eminemini/Desktop/Xcode/Personal/RandomUser/RandomUser/Main/UserView/UsersViewController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "30"
+                  endingLineNumber = "30"
+                  offsetFromSymbolStart = "168">
+               </Location>
+               <Location
+                  uuid = "6C6E596F-B74F-4FBF-A3F0-92C0CA853115 - 4bff5f34c7eff659"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 @Swift.MainActor () -&gt; () in closure #1 () -&gt; () in RandomUser.UsersViewController.viewDidLoad() -&gt; ()"
+                  moduleName = "RandomUser"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/eminemini/Desktop/Xcode/Personal/RandomUser/RandomUser/Main/UserView/UsersViewController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "30"
+                  endingLineNumber = "30"
+                  offsetFromSymbolStart = "72">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "BCB90CD6-60E2-4A67-B3BA-DE4C0DCA6367"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "RandomUser/Main/UserView/UsersViewController.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "31"
+            endingLineNumber = "31"
+            landmarkName = "viewDidLoad()"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
    </Breakpoints>
 </Bucket>

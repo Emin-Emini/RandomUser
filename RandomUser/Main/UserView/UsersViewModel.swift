@@ -10,11 +10,13 @@ import Alamofire
 import RealmSwift
 
 class UsersViewModel {
+    
     private var users: [User] = []
     private var currentPage = 1
     private var isFetching = false
     var didUpdateData: (() -> Void)?
-    
+    var didFailWithError: ((String) -> Void)?
+
     /// Fetches the users from the API. Uses pagination and prevents multiple requests from being sent simultaneously.
     func fetchUsers() {
         guard !isFetching else { return }  // Prevent multiple fetch requests
@@ -29,6 +31,7 @@ class UsersViewModel {
                 self.loadUsers()  // Load users from Realm database
             case .failure(let error):
                 print("Failed to fetch users: \(error.localizedDescription)")
+                self.didFailWithError?(error.localizedDescription)
             }
         }
     }
