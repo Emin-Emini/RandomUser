@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="22154" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="csC-KP-JQs">
+    <device id="retina6_12" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="22130"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Bookmark-->
+        <scene sceneID="ST6-uc-bsA">
+            <objects>
+                <viewController id="1uu-5U-Nsg" customClass="SavedUsersViewController" customModule="RandomUser" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="jmF-gy-TPx">
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="12" translatesAutoresizingMaskIntoConstraints="NO" id="9Yy-0f-64h">
+                                <rect key="frame" x="64" y="278" width="265" height="296.33333333333326"/>
+                                <subviews>
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="empty-box" translatesAutoresizingMaskIntoConstraints="NO" id="n0h-Va-gwQ">
+                                        <rect key="frame" x="0.0" y="0.0" width="265" height="200"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="200" id="YBx-F1-D9B"/>
+                                        </constraints>
+                                    </imageView>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="No Users" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vGn-d8-yRL">
+                                        <rect key="frame" x="0.0" y="212" width="265" height="34"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="34" id="F6H-VE-9gQ"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="28"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Go in users and save a user to fill this list." textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cph-aG-2VL">
+                                        <rect key="frame" x="0.0" y="258" width="265" height="38.333333333333314"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                        <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                            </stackView>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="rlF-oO-zQ3">
+                                <rect key="frame" x="0.0" y="103" width="393" height="715"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                            </tableView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="CFn-II-Jyx"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <color key="tintColor" systemColor="systemIndigoColor"/>
+                        <constraints>
+                            <constraint firstItem="CFn-II-Jyx" firstAttribute="trailing" secondItem="9Yy-0f-64h" secondAttribute="trailing" constant="64" id="M3k-2e-0lP"/>
+                            <constraint firstItem="9Yy-0f-64h" firstAttribute="leading" secondItem="CFn-II-Jyx" secondAttribute="leading" constant="64" id="TiZ-VP-MYR"/>
+                            <constraint firstItem="rlF-oO-zQ3" firstAttribute="trailing" secondItem="CFn-II-Jyx" secondAttribute="trailing" id="WAA-Lc-Ihy"/>
+                            <constraint firstItem="9Yy-0f-64h" firstAttribute="centerY" secondItem="jmF-gy-TPx" secondAttribute="centerY" id="cSV-C5-PvI"/>
+                            <constraint firstItem="rlF-oO-zQ3" firstAttribute="bottom" secondItem="CFn-II-Jyx" secondAttribute="bottom" id="lvj-6P-5vZ"/>
+                            <constraint firstItem="rlF-oO-zQ3" firstAttribute="top" secondItem="CFn-II-Jyx" secondAttribute="top" id="pj3-Ml-gFk"/>
+                            <constraint firstItem="rlF-oO-zQ3" firstAttribute="leading" secondItem="CFn-II-Jyx" secondAttribute="leading" id="uOW-N5-Svn"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" title="Bookmark" largeTitleDisplayMode="always" id="aGZ-uS-bzQ"/>
+                    <connections>
+                        <outlet property="usersTableView" destination="rlF-oO-zQ3" id="xQi-1f-lTL"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="4vg-PG-inv" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="682" y="1530"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="B1c-lh-uvK">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="csC-KP-JQs" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="" image="bookmark" id="Hqn-TK-Afo">
+                        <color key="badgeColor" systemColor="systemIndigoColor"/>
+                    </tabBarItem>
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="HOP-NT-Kme">
+                        <rect key="frame" x="0.0" y="59" width="393" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="1uu-5U-Nsg" kind="relationship" relationship="rootViewController" id="CVI-xj-UmF"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dyD-VX-558" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="683" y="780"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="bookmark" width="29" height="29"/>
+        <image name="empty-box" width="512" height="512"/>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+        <systemColor name="systemIndigoColor">
+            <color red="0.34509803919999998" green="0.33725490200000002" blue="0.83921568629999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+    </resources>
+</document>
