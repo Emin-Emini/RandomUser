@@ -79,4 +79,14 @@ extension UsersViewController: UITableViewDataSource, UITableViewDelegate {
             viewModel.fetchUsers()
         }
     }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        tableView.deselectRow(at: indexPath, animated: true)
+        let selectedUser = viewModel.user(at: indexPath.row)
+        
+        let storyBoard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
+        let friendDetailsViewController = storyBoard.instantiateViewController(withIdentifier: "UserDetailsViewController") as! UserDetailsViewController
+        friendDetailsViewController.user = selectedUser
+        self.present(friendDetailsViewController, animated: true, completion: nil)
+    }
 }
